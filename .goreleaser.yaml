@@ -31,17 +31,17 @@ builds:
       - ppc64le
       - riscv64
       - s390x
-#    goarm:
-#      - 6
-#      - 7
-#    goamd64:
-#      - v1
-#      - v2
-#      - v3
-#      - v4
-#    gomips:
-#      - hardfloat
-#      - softfloat
+    goarm:
+      - 6
+      - 7
+    goamd64:
+      - v1
+      - v2
+      - v3
+      - v4
+    gomips:
+      - hardfloat
+      - softfloat
 
 
 archives:
@@ -53,7 +53,10 @@ archives:
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
-      {{- if .Arm }}v{{ .Arm }}{{ end }}
+      {{ with .Arm }}v{{ . }}{{ end }}
+      {{ with .Mips }}_{{ . }}{{ end }}
+      {{ if not (eq .Amd64 "v1") }}{{ .Amd64 }}{{ end }}
+
     # use zip for windows archives
     format_overrides:
     - goos: windows
