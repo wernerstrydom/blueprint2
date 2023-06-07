@@ -31,17 +31,17 @@ builds:
       - ppc64le
       - riscv64
       - s390x
-    goarm:
-      - 6
-      - 7
-    goamd64:
-      - v1
-      - v2
-      - v3
-      - v4
-    gomips:
-      - hardfloat
-      - softfloat
+#    goarm:
+#      - 6
+#      - 7
+#    goamd64:
+#      - v1
+#      - v2
+#      - v3
+#      - v4
+#    gomips:
+#      - hardfloat
+#      - softfloat
 
 
 archives:
